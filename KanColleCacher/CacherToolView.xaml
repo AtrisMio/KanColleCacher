@@ -9,7 +9,7 @@
              x:Class="d_f_32.KanColleCacher.CacherToolView" 
              mc:Ignorable="d" 
              d:DesignWidth="590" 
-             d:DesignHeight="600"
+             d:DesignHeight="753"
              d:DataContext="{d:DesignInstance local:Settings}">
 
 
@@ -161,6 +161,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             
             <StackPanel>
@@ -272,8 +273,19 @@
             </StackPanel>
             
 
-            <!--第四区块-->
+            <!-- 插入hack家具-->
             <StackPanel Grid.Row="3">
+                <CheckBox Content="启用家具Hack规则" 
+                          Margin="10,10,0,0" 
+                          IsEnabled="{Binding IsChecked, ElementName=CheckBox_CacheEnabled}" 
+                          IsChecked="{Binding Current.FurnitureHackEnabled, Mode=TwoWay}"/>
+                <TextBlock Text="※ 家具Hack缓存中优先使用*.hack.swf，而不是*.hack.png" 
+                           Margin="31,10,0,0" 
+                           Style="{StaticResource DetailTextBlock}"/>
+                <Border Style="{StaticResource BorderStyle}" />
+            </StackPanel>
+            <!--第四区块-->
+            <StackPanel Grid.Row="4">
             <CheckBox Content="替换登陆语音与服务器文字" 
                       Margin="10,10,0,0" 
                       IsEnabled="{Binding IsChecked, ElementName=CheckBox_CacheEnabled}" 
@@ -290,7 +302,7 @@
 
 
             <!--第五区块-->
-            <StackPanel Grid.Row="4">
+            <StackPanel Grid.Row="5">
                 <CheckBox Content="开启全图鉴" 
                       Margin="10,10,0,0" 
                       IsEnabled="{Binding IsChecked, ElementName=CheckBox_CacheEnabled}" 
@@ -305,7 +317,7 @@
             
 
             <!--第六区块-->
-            <StackPanel Grid.Row="5">
+            <StackPanel Grid.Row="6">
                 <CheckBox Content="免费点唱机" 
                       Margin="10,10,0,0" 
                       IsEnabled="{Binding IsChecked, ElementName=CheckBox_CacheEnabled}" 
@@ -320,7 +332,7 @@
 
 
             <!--第七区块-->
-            <StackPanel Grid.Row="6">
+            <StackPanel Grid.Row="7">
                 <Label Content="舰娘文件名列表" Margin="10,10,0,0" Padding="0" Foreground="White"/>
                 <TextBlock TextWrapping="Wrap"
                            Margin="30,10,0,0" 
@@ -344,7 +356,7 @@
 
 
             <!--第八区块-->
-            <StackPanel Grid.Row="7">
+            <StackPanel Grid.Row="8">
                 <Label Content="清除缓存" Margin="10,10,0,0" Padding="0" Foreground="White"/>
                 <TextBlock TextWrapping="Wrap"
                            Margin="30,10,0,0" 

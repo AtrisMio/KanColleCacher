@@ -22,10 +22,12 @@ namespace d_f_32.KanColleCacher
         static CacheCore cache;
         static GraphModifier modifier;
         static RespHacker hacker;
-		
-		static public void Initialize ()
+        private static ImageModifier imodifier;
+
+        static public void Initialize ()
 		{
 			cache = new CacheCore();
+            imodifier = new ImageModifier();
 			modifier = new GraphModifier();
             hacker = new RespHacker();
             

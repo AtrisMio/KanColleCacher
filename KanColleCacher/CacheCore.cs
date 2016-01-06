@@ -134,15 +134,26 @@ namespace d_f_32.KanColleCacher
 				{
 					var fnext = uri.Segments.Last().Split('.');
 					string hfilepath = filepath.Replace(uri.Segments.Last(), fnext[0] + ".hack." + fnext.Last());
+                    if(type == filetype.image && Settings.Current.FurnitureHackEnabled)
+                    {
+                        hfilepath = filepath.Replace(uri.Segments.Last(), fnext[0] + ".hack." + (type == filetype.image ? "swf" : fnext.Last()));
+                        if (File.Exists(hfilepath))
+                        {
+                            result = hfilepath;
+                            return Direction.Return_LocalFile;
+                            //存在hack文件，则返回本地文件
+                        }
+                        else
+                            hfilepath = filepath.Replace(uri.Segments.Last(), fnext[0] + ".hack." + fnext.Last());
 
+                    }
 					if (File.Exists(hfilepath))
 					{
 						result = hfilepath;
 						return Direction.Return_LocalFile;
 						//存在hack文件，则返回本地文件
 					}
-
-				}
+                }
 
 				//检查缓存文件
 				if (File.Exists(filepath))

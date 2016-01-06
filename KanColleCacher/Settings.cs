@@ -113,6 +113,7 @@ namespace d_f_32.KanColleCacher
                 _CacheFolder = Directory.GetCurrentDirectory() + @"\MyCache";
                 _CacheEnabled = true;
                 _HackEnabled = true;
+                _FurnitureHackEnabled = false;
                 _HackTitleEnabled = true;
                 _HackBookEnabled = false;
                 _HackMusicRequestEnabled = false;
@@ -169,6 +170,21 @@ namespace d_f_32.KanColleCacher
                 if (this._HackEnabled != value)
                 {
                     this._HackEnabled = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        private bool _FurnitureHackEnabled;
+        [ExportMetadata("Comment", "启用家具Hack规则")]
+        public bool FurnitureHackEnabled
+        {
+            get { return this._FurnitureHackEnabled; }
+            set
+            {
+                if (this._FurnitureHackEnabled != value)
+                {
+                    this._FurnitureHackEnabled = value;
                     this.RaisePropertyChanged();
                 }
             }
