@@ -102,7 +102,6 @@
     <Compile Include="ConfigParser.cs" />
     <Compile Include="GMTHelper.cs" />
     <Compile Include="GraphList.cs" />
-    <Compile Include="ImageModifier.cs" />
     <Compile Include="GraphModifier.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

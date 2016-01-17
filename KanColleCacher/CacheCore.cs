@@ -136,7 +136,7 @@ namespace d_f_32.KanColleCacher
 					string hfilepath = filepath.Replace(uri.Segments.Last(), fnext[0] + ".hack." + fnext.Last());
                     if(type == filetype.image && Settings.Current.FurnitureHackEnabled)
                     {
-                        hfilepath = filepath.Replace(uri.Segments.Last(), fnext[0] + ".hack." + (type == filetype.image ? "swf" : fnext.Last()));
+                        hfilepath = filepath.Replace(uri.Segments.Last(), fnext[0] + ".hack." + (type == filetype.image ? "swf" : fnext.Last()));//添加swf规则
                         if (File.Exists(hfilepath))
                         {
                             result = hfilepath;

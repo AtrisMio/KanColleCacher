@@ -275,7 +275,7 @@
 
             <!-- 插入hack家具-->
             <StackPanel Grid.Row="3">
-                <CheckBox Content="启用家具Hack规则" 
+                <CheckBox Content="启用家具SWF Hack规则" 
                           Margin="10,10,0,0" 
                           IsEnabled="{Binding IsChecked, ElementName=CheckBox_CacheEnabled}" 
                           IsChecked="{Binding Current.FurnitureHackEnabled, Mode=TwoWay}"/>
