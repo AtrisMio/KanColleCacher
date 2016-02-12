@@ -92,7 +92,7 @@ namespace d_f_32.KanColleCacher
 			if (!_Filter(oSession)) return;
 			if (oSession.responseCode == 304)
 			{
-				string filepath = TaskRecord.GetAndRemove(oSession.fullUrl);
+                string filepath; TaskRecord.GetAndRemove(oSession.fullUrl,out filepath);
 				//只有TaskRecord中有记录的文件才是验证的文件，才需要修改Header
 				if (!string.IsNullOrEmpty(filepath))
 				{
@@ -132,7 +132,7 @@ namespace d_f_32.KanColleCacher
 			//服务器返回200，下载新的文件
 			if (oSession.responseCode == 200)
 			{
-				string filepath = TaskRecord.GetAndRemove(oSession.fullUrl);
+                string filepath; TaskRecord.GetAndRemove(oSession.fullUrl,out filepath);
 
 				//只有TaskRecord中有记录的文件才是验证的文件，才需要保存
 				if (!string.IsNullOrEmpty(filepath))

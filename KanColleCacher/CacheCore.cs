@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using Debug = System.Diagnostics.Debug;
@@ -203,9 +204,9 @@ namespace d_f_32.KanColleCacher
 				}
 				else
 				{
-					//缓存文件不存在
-					//-> 下载文件 （记录保存地址）
-					_RecordTask(url, filepath);
+                    //缓存文件不存在
+                    //-> 下载文件 （记录保存地址）
+                    _RecordTask(url, filepath);
 					return Direction.Discharge_Response;
 				}
 			}
@@ -322,5 +323,5 @@ namespace d_f_32.KanColleCacher
 		{
 			TaskRecord.Add(url, filepath);
 		}
-	}
+    }
 }

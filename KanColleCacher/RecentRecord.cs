@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,20 +18,24 @@ namespace d_f_32.KanColleCacher
 			record.AddOrUpdate(url, filepath, (key, oldValue) => filepath);
 		}
 
-		static public string GetAndRemove(string url)
+		static public void GetAndRemove(string url,out string ret)
 		{
-			string ret;
-			record.TryRemove(url, out ret);
-			return ret;
-		}
-		static public string Get(string url)
+            #region 魔法代码
+            // 大咪咪在remodel中发包请求资源有问题，固将swf的record保留
+            bool temp = url.Contains(@".swf") ? record.TryGetValue(url,out ret):record.TryRemove(url, out ret);
+            #endregion
+            /*if (url.Contains("gsrzkautnghc"))
+                Debug.WriteLine(record.Keys.ToString()+" "+record.Values.ToString());
+                */
+        }
+        static public string Get(string url)
 		{
 			string ret;
 			if (record.TryGetValue(url, out ret))
 				return ret;
 			return "";
 		}
-	}
+    }
 
 	#region 废弃的代码
 	//static class RecentRecord
